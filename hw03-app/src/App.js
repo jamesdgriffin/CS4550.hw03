@@ -8,7 +8,7 @@ function App() {
   const [text, setText] = useState("");
 
   function guess(ev) {
-    let input = ev.target.value;
+    let input = ev.target.value[ev.target.value.length - 1];
     setGuesses(guesses.concat(input));
     setText(input);
   }
