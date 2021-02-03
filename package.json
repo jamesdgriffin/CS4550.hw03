@@ -1,0 +1,19 @@
+{
+  "name": "cs4550.hw03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yono-oko/CS4550.hw03.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yono-oko/CS4550.hw03/issues"
+  },
+  "homepage": "https://github.com/yono-oko/CS4550.hw03#readme"
+}

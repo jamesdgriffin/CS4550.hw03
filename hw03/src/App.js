@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './game.js';
 
 function App() {
   const [secret, setSecret] = useState("1234");
@@ -13,14 +14,13 @@ function App() {
 
   function guess() {
     setGuesses(guesses.concat(text));
+    setText("");
   }
 
   function reset() {
     setGuesses([]);
     setText("");
   }
-
-
 
   return (
     <div className="App">
