@@ -7,10 +7,17 @@ function App() {
   const [guesses, setGuesses] = useState([]);
   const [text, setText] = useState("");
 
-  function guess(ev) {
-    let input = ev.target.value[ev.target.value.length - 1];
-    setGuesses(guesses.concat(input));
-    setText(input);
+  function changeText(ev) {
+    setText(ev.target.value);
+  }
+
+  function guess() {
+    setGuesses(guesses.concat(text));
+  }
+
+  function reset() {
+    setGuesses([]);
+    setText("");
   }
 
 
@@ -18,10 +25,11 @@ function App() {
   return (
     <div className="App">
       <h1>secret: {secret}</h1>
-      <input type="text" value={text} onChange={guess} />
+      <input type="text" value={text} onChange={changeText} />
       <h1>guesses: {guesses.join('')}</h1>
       <p>
-        <button onClick={() => setGuesses([])}>Reset</button>
+        <button onClick={guess}>Guess</button>
+        <button onClick={reset}>Reset</button>
       </p>
     </div>
   );
