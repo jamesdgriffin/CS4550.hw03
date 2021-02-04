@@ -8,6 +8,7 @@ function App() {
   const [guesses, setGuesses] = useState([]);
   const [results, setResults] = useState([]);
   const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
 
   function changeText(ev) {
     setText(ev.target.value);
@@ -22,20 +23,31 @@ function App() {
       setGuesses(guesses.concat(text));
       setResults(results.concat(result));
       setText("");
+      setMessage("");
       if(guesses.length >= 7) {
         lose();
       }
     }
+    else {
+      setMessage("Invalid Entry. Try again.");
+      setText("");
+    }
   }
 
-  function win() {}
+  function win() {
+    setMessage("You Win!");
+    won = true;
+  }
 
-  function lose() {}
+  function lose() {
+    setMessage("You Lose! Press Reset button to try again.");
+  }
 
   function reset() {
     setGuesses([]);
     setResults([]);
     setText("");
+    setMessage("");
   }
 
   function enter(ev) {
@@ -47,6 +59,8 @@ function App() {
   return (
     <div className="App">
       <h1>Secret: {secret}</h1>
+      <h1>Bulls and Cows game!</h1>
+      <h2>{message}</h2>
       <input type="text" value={text} onChange={changeText}
                 onKeyPress={enter}/>
       <h1>Guesses: {guesses.join(', ')}</h1>
