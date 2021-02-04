@@ -1,12 +1,34 @@
-export function viewGuesses(guesses) {
-
-  let output = [];
-
-  output.push(guesses);
-
-  return(
-      <p>Previous Guesses: {output}</p>
-  );
 
 
+export function getResult(guess, secret) {
+  var bulls = 0;
+  var cows = 0;
+
+  //check for bulls
+  for(var k=0; k<secret.length; k++) {
+    if(guess.charAt(k)==secret.charAt(k)) {
+      bulls++;
+    }
+    //check for cows
+    else {
+      for(var i=0; i<secret.length; i++) {
+        if(guess.charAt(k)==secret.charAt(i)) {
+          cows++;
+        }
+      }
+    }
+  }
+
+  return "Bulls: " + bulls + " Cows: " + cows;
+}
+
+//checks for valid input
+export function valid(guess) {
+  for(var k=0; k<guess.length-1; k++) {
+    if(guess.charAt(k)==guess.charAt(k+1)) {
+      return false;
+    }
+  }
+
+  return !(isNaN(parseInt(guess)));
 }
