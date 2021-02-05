@@ -1,4 +1,11 @@
+export function getRandom() {
+  var d1 = Math.floor(Math.random() * 10);
+  var d2 = Math.floor(Math.random() * 10);
+  var d3 = Math.floor(Math.random() * 10);
+  var d4 = Math.floor(Math.random() * 10);
 
+  return "" + d1 + d2 + d3 + d4 + "";
+}
 
 export function getResult(guess, secret) {
   var bulls = 0;

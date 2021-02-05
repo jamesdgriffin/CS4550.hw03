@@ -1,10 +1,10 @@
 import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {getResult, valid} from './game.js';
+import {getRandom, getResult, valid} from './game.js';
 
 function App() {
-  const [secret, setSecret] = useState("1234");
+  const [secret, setSecret] = useState(getRandom());
   const [guesses, setGuesses] = useState([]);
   const [results, setResults] = useState([]);
   const [text, setText] = useState("");
@@ -47,6 +47,7 @@ function App() {
     setResults([]);
     setText("");
     setMessage("");
+    setSecret(getRandom());
   }
 
   function enter(ev) {
