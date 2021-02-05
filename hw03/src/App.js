@@ -60,7 +60,6 @@ function App() {
   (message=="You Lose! Press Reset button to try again.")) {
     return (
       <div className="App">
-        <h1>Secret: {secret}</h1>
         <h1>Bulls and Cows game!</h1>
         <h2>{message}</h2>
         <input type="text" value=""/>
@@ -114,7 +113,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Secret: {secret}</h1>
       <h1>Bulls and Cows game!</h1>
       <h2>{message}</h2>
       <input type="text" value={text} onChange={changeText}
