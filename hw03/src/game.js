@@ -24,6 +24,9 @@ export function getResult(guess, secret) {
 
 //checks for valid input
 export function valid(guess) {
+  if(guess.length !== 4) {
+    return false;
+  }
   for(var k=0; k<guess.length-1; k++) {
     if(guess.charAt(k)==guess.charAt(k+1)) {
       return false;
