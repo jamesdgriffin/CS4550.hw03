@@ -36,7 +36,6 @@ function App() {
 
   function win() {
     setMessage("You Win!");
-    won = true;
   }
 
   function lose() {
@@ -56,20 +55,39 @@ function App() {
     }
   }
 
-  return (
-    <div className="App">
+  if((message=="You Win!") ||
+  (message=="You Lose! Press Reset button to try again.")) {
+    return (
+      <div className="App">
       <h1>Secret: {secret}</h1>
       <h1>Bulls and Cows game!</h1>
       <h2>{message}</h2>
-      <input type="text" value={text} onChange={changeText}
-                onKeyPress={enter}/>
+      <input type="text" value=""/>
       <h1>Guesses: {guesses.join(', ')}</h1>
       <h1>Results: {results.join(', ')}</h1>
       <p>
-        <button onClick={guess}>Guess</button>
-        <button onClick={reset}>Reset</button>
+      <button>Guess</button>
+      <button onClick={reset}>Reset</button>
 
       </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="App">
+    <h1>Secret: {secret}</h1>
+    <h1>Bulls and Cows game!</h1>
+    <h2>{message}</h2>
+    <input type="text" value={text} onChange={changeText}
+    onKeyPress={enter}/>
+    <h1>Guesses: {guesses.join(', ')}</h1>
+    <h1>Results: {results.join(', ')}</h1>
+    <p>
+    <button onClick={guess}>Guess</button>
+    <button onClick={reset}>Reset</button>
+
+    </p>
     </div>
   );
 }
